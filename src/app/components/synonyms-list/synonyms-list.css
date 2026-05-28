@@ -1,0 +1,64 @@
+.synonyms-list {
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+}
+
+.synonyms-list-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.title {
+  margin-bottom: 0;
+}
+
+.synonyms-list-count {
+  font-size: 0.75rem;
+  font-weight: 600;
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  padding: 0.1rem 0.5rem;
+  border-radius: 4px;
+}
+
+.synonyms-list-body {
+  padding: 1rem;
+  min-height: 100px;
+  background-color: var(--tile-color);
+}
+
+.synonyms-list-hint {
+  font-size: 0.85rem;
+  color: var(--muted-color);
+  /* line-height: 1.6; */
+}
+
+.synonyms-list-hint.error {
+  color: var(--error-color);
+}
+
+.synonyms-list-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.chip {
+  padding: 0.35rem 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  background: transparent;
+  font-size: 0.85rem;
+  color: var(--text-color);
+  cursor: pointer;
+  transition: all 0.13s;
+}
+
+.chip:hover {
+  background-color: var(--primary-color-hover);
+  color: var(--secondary-color);
+}

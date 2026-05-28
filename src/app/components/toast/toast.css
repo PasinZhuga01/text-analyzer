@@ -1,6 +1,17 @@
 .toast {
+  position: fixed;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--toast-background-color);
+  color: var(--toast-text-color);
+  font-size: 0.85rem;
+  padding: 0.5rem 1.1rem;
+  border-radius: 6px;
   opacity: 0;
+  pointer-events: none;
   transition: 500ms ease;
+  white-space: nowrap;
 }
 
 .toast.show {

@@ -1,25 +1,40 @@
 @let state = this._state();
 
-@switch (state.status) {
-    @case('loading') {
-        <p>Завантаження...</p>
-    }
+<div class="synonyms-list">
+    <div class="synonyms-list-header">
+        <h2 class="title">Синоніми</h2>
 
-    @case('ready') {
-        @if (state.items.length === 0) {
-            <p>Синонімів не знайдено</p>
+        @if (state.status === 'ready' && state.items.length > 0) {
+            <span class="synonyms-list-count">{{ state.items.length }}</span>
         }
+    </div>
 
-        @for (item of state.items; track item) {
-            <p>
-                <button (click)="selected.emit(item)">
-                    {{ item }}
-                </button>
-            </p>
+    <div class="synonyms-list-body">
+        @switch (state.status) {
+            @case('idle') {
+                <div class="synonyms-list-hint">Тут відображається список синонімів</div>
+            }
+            
+            @case('loading') {
+                <div class="synonyms-list-hint">Завантаження...</div>
+            }
+
+            @case('ready') {
+                @if (state.items.length === 0) {
+                    <div class="synonyms-list-hint">Синонімів не знайдено</div>
+                }
+                @else {
+                    <div class="synonyms-list-chips">
+                        @for (item of state.items; track item) {
+                            <button class="chip" (click)="selected.emit(item)">{{ item }}</button>
+                        }
+                    </div>
+                }
+            }
+
+            @case('error') {
+                <div class="synonyms-list-hint error">Помилка: {{ state.message }}</div>
+            }
         }
-    }
-
-    @case('error') {
-        <p>Помилка: {{ state.message }}</p>
-    }
-}
+    </div>
+</div>

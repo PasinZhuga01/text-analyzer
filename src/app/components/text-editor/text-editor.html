@@ -1,6 +1,16 @@
-<p><textarea #textarea [(ngModel)]="_value" placeholder="Введіть текст"></textarea></p>
+<div class="text-editor">
+    <textarea class="text-editor-input" #textarea [(ngModel)]="_value" placeholder="Введіть текст"></textarea>
 
-<p>Кількість символів: <span>{{ _symbolsCount() }}</span></p>
-<p>Кількість слів: <span>{{ _wordsCount() }}</span></p>
+    <div class="text-editor-footer">
+        <div class="text-editor-stats">
+            <span>Кількість символів: <b>{{ _symbolsCount() }}</b></span>
+            <span>Кількість слів: <b>{{ _wordsCount() }}</b></span>
+        </div>
 
-<p><button (click)="_copyValueToClipboard()">Копіювати текст</button></p>
+        <button class="button" (click)="_copyValueToClipboard()">Копіювати текст</button>
+    </div>
+</div>
+
+
+
+

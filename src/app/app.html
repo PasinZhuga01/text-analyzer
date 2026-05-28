@@ -1,6 +1,14 @@
-<app-text-editor #textEditor></app-text-editor>
-<app-synonyms-list #synonymsList (selected)="_replaceSelectionWithSynonym($event)"></app-synonyms-list>
+<div class="app">
+    <h1 class="title">Аналізатор фраз та слів</h1>
 
-<button (click)="_loadSynonyms()">Отримати синоніми виділенного фрагменту для вставки</button>
+    <div class="app-grid">
+        <app-text-editor #textEditor></app-text-editor>
+
+        <div class="app-sidebar">
+            <app-synonyms-list #synonymsList (selected)="_replaceSelectionWithSynonym($event)"></app-synonyms-list>
+            <button class="button" (click)="_loadSynonyms()">Отримати синоніми виділенного фрагменту для вставки</button>
+        </div>
+    </div>
+</div>
 
 <app-toast></app-toast>
