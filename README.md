@@ -1,59 +1,98 @@
-# TextAnalyzer
+# Text Analyzer
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.0.2.
+![Angular](https://img.shields.io/badge/Angular-20+-DD0031?logo=angular&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-5+-3178C6?logo=typescript&logoColor=white)
+![ESLint](https://img.shields.io/badge/ESLint-9+-4B32C3?logo=eslint&logoColor=white)
+![Prettier](https://img.shields.io/badge/Prettier-Formatted-F7B93E?logo=prettier&logoColor=black)
+![Vercel](https://img.shields.io/badge/Vercel-Deployed-000000?logo=vercel&logoColor=white)
 
-## Development server
+Simple text editor with text analysis and synonyms replacement support.
 
-To start a local development server, run:
+## Deployment
 
-```bash
-ng serve
-```
+Application deployed on Vercel:
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+https://my-text-analyzer-two.vercel.app/
 
-## Code scaffolding
+## Features
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+- Text editing
+- Symbol counter
+- Word counter
+- Synonyms search
+- Replace selected text with synonym
+- Сopy to сlipboard in one click
+- Toast notifications
 
-```bash
-ng generate component component-name
-```
+## Technologies
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+- Angular
+- TypeScript
+- ESLint
+- Prettier
 
-```bash
-ng generate --help
-```
+## Installation and local launch
 
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+Clone repository:
 
 ```bash
-ng test
+git clone <repository-url>
 ```
 
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
+Install dependencies:
 
 ```bash
-ng e2e
+npm install
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+Run development server:
 
-## Additional Resources
+```bash
+npm run start
+```
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Application will be available at:
+
+```text
+http://localhost:4200
+```
+
+## Scripts
+
+### Start development server
+
+```bash
+npm run start
+```
+
+Runs application in development mode.
+
+---
+
+### Build application
+
+```bash
+npm run build
+```
+
+Creates production build.
+
+---
+
+### Run linter
+
+```bash
+npm run lint
+```
+
+Checks project code with ESLint.
+
+---
+
+### Format code
+
+```bash
+npm run format
+```
+
+Formats project files with Prettier and fixes ESLint issues.
