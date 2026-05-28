@@ -1,0 +1,7 @@
+<p><textarea #textarea [(ngModel)]="_value" placeholder="Введіть текст"></textarea></p>
+
+<p>Кількість символів: <span>{{ _symbolsCount() }}</span></p>
+<p>Кількість слів: <span>{{ _wordsCount() }}</span></p>
+
+<p><button (click)="_copyValueToClipboard()">Копіювати текст</button></p>
+<p class="toast" [class.show]="_isCopied()" (transitionend)="_isCopied.set(false)">Текст скопійовано</p>
