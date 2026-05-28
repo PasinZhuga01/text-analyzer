@@ -1,0 +1,25 @@
+@let state = this._state();
+
+@switch (state.status) {
+    @case('loading') {
+        <p>Завантаження...</p>
+    }
+
+    @case('ready') {
+        @if (state.items.length === 0) {
+            <p>Синонімів не знайдено</p>
+        }
+
+        @for (item of state.items; track item) {
+            <p>
+                <button (click)="selected.emit(item)">
+                    {{ item }}
+                </button>
+            </p>
+        }
+    }
+
+    @case('error') {
+        <p>Помилка: {{ state.message }}</p>
+    }
+}
