@@ -1,5 +1,7 @@
-import { Component, computed, ElementRef, signal, viewChild } from '@angular/core';
+import { Component, computed, ElementRef, inject, signal, viewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+
+import { ToastService } from '../../services/toast-service';
 
 @Component({
   selector: 'app-text-editor',
@@ -9,12 +11,12 @@ import { FormsModule } from '@angular/forms';
 })
 export class TextEditor {
   protected readonly _value = signal('');
-  protected readonly _isCopied = signal(false);
 
   protected readonly _symbolsCount = computed(() => this._value().length);
   protected readonly _wordsCount = computed(() => this._value().trim().split(/\s+/).filter(Boolean).length);
 
   private readonly _textarea = viewChild.required<ElementRef<HTMLTextAreaElement>>('textarea');
+  private readonly _toastService = inject(ToastService);
 
   public getSelectedValue(): string | null {
     const { selectionStart, selectionEnd } = this._textarea().nativeElement;
@@ -40,6 +42,6 @@ export class TextEditor {
 
   protected async _copyValueToClipboard(): Promise<void> {
     await navigator.clipboard.writeText(this._value());
-    this._isCopied.set(true);
+    this._toastService.show('Текст скопійовано');
   }
 }

@@ -2,4 +2,5 @@
 <app-synonyms-list #synonymsList (selected)="_replaceSelectionWithSynonym($event)"></app-synonyms-list>
 
 <button (click)="_loadSynonyms()">Отримати синоніми виділенного фрагменту для вставки</button>
-<p class="toast" [class.show]="_isSelectionMissing()" (transitionend)="_isSelectionMissing.set(false)">Фрагмент не було виділено</p>
+
+<app-toast></app-toast>

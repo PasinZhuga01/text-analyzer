@@ -1,25 +1,27 @@
-import { Component, signal, viewChild } from '@angular/core';
+import { Component, inject, viewChild } from '@angular/core';
 
+import { SynonymsList } from './components/synonyms-list/synonyms-list';
 import { TextEditor } from './components/text-editor/text-editor';
-import { SynonymsList } from "./components/synonyms-list/synonyms-list";
+import { Toast } from './components/toast/toast';
+import { ToastService } from './services/toast-service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.html',
   styleUrl: './app.css',
-  imports: [TextEditor, SynonymsList],
+  imports: [TextEditor, SynonymsList, Toast],
 })
 export class App {
-  protected readonly _isSelectionMissing = signal(false);
-
   protected readonly _textEditor = viewChild.required<TextEditor>('textEditor');
   protected readonly _synonymsList = viewChild.required<SynonymsList>('synonymsList');
+
+  private readonly _toastService = inject(ToastService);
 
   protected _loadSynonyms(): void {
     const selectedValue = this._textEditor().getSelectedValue();
 
     if (selectedValue === null) {
-      return this._isSelectionMissing.set(true);
+      return this._toastService.show('Фрагмент не було виділено');
     }
 
     this._synonymsList().loadSynonyms(selectedValue);

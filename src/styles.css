@@ -1,8 +1,0 @@
-.toast {
-  opacity: 0;
-  transition: 500ms ease;
-}
-
-.toast.show {
-  opacity: 1;
-}
